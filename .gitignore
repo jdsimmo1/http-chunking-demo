@@ -2,6 +2,7 @@
 .editorconfig
 .vscode/
 .dev/
+**/.angular/
 
 # Compiled output
 /dist
