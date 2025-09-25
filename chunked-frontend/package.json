@@ -1,0 +1,42 @@
+{
+  "name": "chunked-frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "serve:ssr:chunked-frontend": "node dist/chunked-frontend/server/server.mjs"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^18.2.7",
+    "@angular/compiler": "^18.2.7",
+    "@angular/core": "^18.2.7",
+    "@angular/forms": "^18.2.7",
+    "@angular/platform-browser": "^18.2.7",
+    "@angular/platform-browser-dynamic": "^18.2.7",
+    "@angular/platform-server": "^18.2.7",
+    "@angular/router": "^18.2.7",
+    "@angular/ssr": "^18.2.21",
+    "rxjs": "^7.8.1",
+    "tslib": "^2.6.3",
+    "zone.js": "0.14.10"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.7",
+    "@angular/cli": "^18.2.7",
+    "@angular/compiler-cli": "^18.2.7",
+    "@types/jasmine": "~5.1.4",
+    "@types/node": "^20.14.10",
+    "electron-to-chromium": "1.5.221",
+    "jasmine-core": "~5.1.2",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "5.5.4"
+  }
+}

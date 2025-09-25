@@ -1,0 +1,36 @@
+  <div style="max-width: 900px; margin: 24px auto; font-family: system-ui, sans-serif;">
+    <h1>HTTP Chunked Streaming Demo</h1>
+
+    <section style="margin:16px 0; padding:12px; border:1px solid #ddd; border-radius:8px;">
+      <h2 style="margin-top:0;">Backend Controls</h2>
+      <label>Backend base URL:
+        <input style="width:360px" [(ngModel)]="baseUrl" placeholder="http://127.0.0.1:5000">
+      </label>
+      <div style="margin-top:8px;">
+        <label>Chunks:
+          <input type="number" min="1" [(ngModel)]="chunks">
+        </label>
+        <label style="margin-left:16px;">Delay (ms):
+          <input type="number" min="0" [(ngModel)]="delayMs">
+        </label>
+      </div>
+    </section>
+
+    <section style="display:flex; gap:16px; flex-wrap: wrap;">
+      <div style="flex:1 1 420px; border:1px solid #ddd; border-radius:8px; padding:12px;">
+        <h3>Regular endpoint</h3>
+        <button (click)="callRegular()" [disabled]="loadingRegular">Call /regular</button>
+        <div *ngIf="loadingRegular">Loading...</div>
+        <pre style="background:#f7f7f7; padding:12px; min-height:160px; white-space:pre-wrap;">{{regularOutput()}}</pre>
+      </div>
+
+      <div style="flex:1 1 420px; border:1px solid #ddd; border-radius:8px; padding:12px;">
+        <h3>Chunked endpoints</h3>
+        <button (click)="callChunked('chunked')" [disabled]="loadingChunked">Stream / Chunked</button>
+        <button (click)="callChunked('stream-file')" [disabled]="loadingChunked">Chunked 2</button>
+        <div *ngIf="loadingChunked">Streaming...</div>
+        <pre style="background:#f7f7f7; padding:12px; min-height:160px; white-space:pre-wrap;">{{chunkedOutput()}}</pre>
+        <small *ngIf="chunkedBytes() > 0">Received {{chunkedBytes()}} bytes</small>
+      </div>
+    </section>
+  </div>
